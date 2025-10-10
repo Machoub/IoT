@@ -1,5 +1,15 @@
-apt-get update
-apt-get install -qqy curl vim
+sudo apt-get update
+sudo apt-get install -qqy curl vim
 
-#install k3d binary
-curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+echo "[+] Installing docker"
+sudo apt-get install -qqy docker.io
+sudo usermod -aG docker $USER
+
+echo "[+] Installing k3d"
+sudo curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+
+echo "[+] Installing kubectl"
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+rm kubectl
+

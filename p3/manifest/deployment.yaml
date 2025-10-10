@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wil_app
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wil_app
+  template:
+    metadata:
+      labels:
+        app: wil_app
+    spec:
+      containers:
+      - name: wil_app
+        image: wil42/playground:v2
+        ports:
+        - containerPort: 8888
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wil_app
+  namespace: dev
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8888
+  

@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/Machoub/wil.git'
     targetRevision: HEAD
-    path: p3/manifest
+    path: p3/manifest/
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: dev

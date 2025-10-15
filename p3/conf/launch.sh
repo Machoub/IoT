@@ -1,7 +1,9 @@
+#3
+
 BOLD="\033[1m"
 ITALIC="\033[3m"
 RESET="\033[0m"
-
+# Apply argocd manifests
 kubectl apply -f /home/debian/IoT/p3/deploy/argo_CD_deploy.yaml
 
 # Write command

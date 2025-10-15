@@ -1,3 +1,5 @@
+#second
+
 # Delete namespaces then recreate it
 kubectl delete namespace argocd
 kubectl delete namespace dev

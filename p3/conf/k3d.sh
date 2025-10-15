@@ -5,6 +5,7 @@ sudo apt-get install -qqy curl vim
 
 echo "[+] Installing docker"
 sudo apt-get install -qqy docker.io
+sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
 
 echo "[+] Installing kubectl"

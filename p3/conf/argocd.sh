@@ -1,5 +1,4 @@
-#second
-
+#2
 # Delete namespaces then recreate it
 kubectl delete namespace argocd
 kubectl delete namespace dev
@@ -16,7 +15,7 @@ kubectl wait --for=condition=available --timeout=600s deployment -n argocd --all
 echo "[+] Initial admin password:"
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 
-echo "[+] ArgoCD UI URL: https://localhost:8080"
+echo "[+] ArgoCD UI URL: https://localhost:8085"
 # Expose argocd server using port-forwarding
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl port-forward svc/argocd-server -n argocd 8085:443
 echo "[+] You can login with username: admin and the above password"

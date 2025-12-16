@@ -17,8 +17,9 @@ echo "[+] Installing k3d"
 sudo curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 
 echo "[+] Creating Kubernetes cluster with k3d"
-k3d cluster delete machoubaS
+newgrp docker <<EOF
+k3d cluster delete machoubaS 2>/dev/null || true
 k3d cluster create machoubaS
-
 echo "[+] Listing k3d clusters"
 k3d cluster list
+EOF
